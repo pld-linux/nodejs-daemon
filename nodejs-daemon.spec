@@ -2,7 +2,7 @@
 Summary:	Add-on for creating *nix daemons
 Name:		nodejs-%{pkg}
 Version:	0.5.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/indexzero/daemon.node
@@ -11,7 +11,6 @@ Source0:	http://registry.npmjs.org/daemon/-/%{pkg}-%{version}.tgz
 BuildRequires:	libstdc++-devel
 BuildRequires:	nodejs-devel
 BuildRequires:	rpmbuild(macros) >= 1.634
-BuildRequires:	sed >= 4.0
 # due library being versioned
 %requires_eq	nodejs
 Requires:	nodejs
@@ -28,6 +27,11 @@ some useful wrappers in JavaScript.
 %setup -qc
 mv package/* .
 
+cat > install <<EOF
+#!/bin/sh
+exit 0
+EOF
+
 %build
 node-waf configure build
 
@@ -39,6 +43,7 @@ cp -pr lib package.json $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
 
 version=$(node -v)
 install -p build/Release/daemon.node $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}/lib/daemon.$version.node
+install -p install $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
@@ -54,5 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{nodejs_libdir}/%{pkg}/lib
 %{nodejs_libdir}/%{pkg}/lib/daemon.js
 %attr(755,root,root) %{nodejs_libdir}/%{pkg}/lib/daemon.v*.node
+%attr(755,root,root) %{nodejs_libdir}/%{pkg}/install
 
 %{_examplesdir}/%{name}-%{version}
