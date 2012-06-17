@@ -8,7 +8,6 @@ Group:		Development/Libraries
 URL:		https://github.com/indexzero/daemon.node
 Source0:	http://registry.npmjs.org/daemon/-/%{pkg}-%{version}.tgz
 # Source0-md5:	31730d0308efdc9435440e1880e82b9d
-BuildRequires:	libstdc++-devel
 BuildRequires:	nodejs-devel
 BuildRequires:	rpmbuild(macros) >= 1.634
 # due library being versioned
