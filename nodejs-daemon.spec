@@ -2,7 +2,7 @@
 Summary:	Add-on for creating *nix daemons
 Name:		nodejs-%{pkg}
 Version:	0.5.1
-Release:	3
+Release:	4
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/indexzero/daemon.node
