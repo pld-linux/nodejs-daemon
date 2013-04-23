@@ -2,7 +2,7 @@
 Summary:	Add-on for creating *nix daemons
 Name:		nodejs-%{pkg}
 Version:	1.1.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/indexzero/daemon.node
@@ -10,7 +10,7 @@ Source0:	http://registry.npmjs.org/daemon/-/%{pkg}-%{version}.tgz
 # Source0-md5:	58e1b7b90b453eb610dd4c85de800e5d
 BuildRequires:	rpmbuild(macros) >= 1.634
 Requires:	nodejs >= 0.8
-BuildArch:	noarch
+#BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # redefine for arch specific
