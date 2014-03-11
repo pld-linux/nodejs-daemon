@@ -5,9 +5,9 @@ Version:	1.1.0
 Release:	3
 License:	MIT
 Group:		Development/Libraries
-URL:		https://github.com/indexzero/daemon.node
 Source0:	http://registry.npmjs.org/daemon/-/%{pkg}-%{version}.tgz
 # Source0-md5:	58e1b7b90b453eb610dd4c85de800e5d
+URL:		https://github.com/indexzero/daemon.node
 BuildRequires:	rpmbuild(macros) >= 1.634
 Requires:	nodejs >= 0.8
 BuildArch:	noarch
@@ -38,5 +38,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{nodejs_libdir}/%{pkg}
 %{nodejs_libdir}/%{pkg}/package.json
 %{nodejs_libdir}/%{pkg}/index.js
-
 %{_examplesdir}/%{name}-%{version}
